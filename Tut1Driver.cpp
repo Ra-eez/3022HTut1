@@ -6,11 +6,9 @@ using namespace std;
 int main(){
 
    string selection;
-
+  
    for(;;){
-      
-      //void clear(void){ system("clear"); } // include cstdlib
-      
+   
       cout<<"0: Add student\n"
           <<"1: Read database\n"
           <<"2: Save database\n"
@@ -19,25 +17,26 @@ int main(){
           <<"q: Quit\n"
           <<"Enter a number (or q to quit) and press return...\n";
           
-      cin>>selection;
+      cin >> selection;
+      system("clear");
+      if (selection == "q") break; //terminating condition
       
-      if (selection == "q") break;
-      
+      else if (selection == "0"){
+         cout << "0 selected\n";
+      }
       else if (selection == "1"){
-         cout << "1 selected";
+         cout << "1 selected\n";
       }
       else if (selection == "2"){
-         cout << "2 selected";
+         cout << "2 selected\n";
       }
       else if (selection == "3"){
-         cout << "3 selected";
+         cout << "3 selected\n";
       }
-      else if (selection == "4"){
+      else if (selection == "4\n"){
          cout << "4 selected";
       }
-      else if (selection == "1"){
-         cout << "1 selected";
-      }
    }
+   
    return 0;
 }
