@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 //driver/ main class
@@ -12,8 +13,17 @@ int main(void){
 
    string selection;
    vector<STNMOE001::StudentRecord>studentVector;
+   
    //initially read in entries from the database/ txt file
-   ifstream ifs("database.txt");
+   ifstream ifs("database");
+   string line;
+   while(getline(ifs, line)){
+      istringstream iss(line);
+      string a, b, c, d; // a-name b-surname c-studentnumber d-classrecord
+      iss >> a >> b >> c >> d;
+      STNMOE001::add_student(a,b,c,d,studentVector); //add student to the vector
+   }
+   
   
    for(;;){ //infinite loop
    
@@ -47,6 +57,10 @@ int main(void){
       }
       else if (selection == "1"){ //read database
          cout << "1 selected\n";
+         for (int i=0; i<studentVector.size();i++){
+            STNMOE001::StudentRecord Student = studentVector[i];
+            cout << Student.Name;
+         }
       }
       else if (selection == "2"){ //save database
          cout << "2 selected\n";

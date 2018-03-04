@@ -17,7 +17,7 @@ namespace STNMOE001 {
       string ClassRecord;
    };
    
-   //vector used to hold all data read and added
+   //vector used to hold all data
    extern vector<StudentRecord>&studentVector;
    
    //method which adds students to the vector which would then need to be later saved to the textfile/database
