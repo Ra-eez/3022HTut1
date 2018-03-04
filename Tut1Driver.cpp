@@ -1,14 +1,23 @@
 #include <iostream>
 #include "dbEngine.h"
 #include "cstdlib"
+#include <string>
+#include <vector>
+#include <fstream>
 using namespace std;
 
-int main(){
+//driver/ main class
+
+int main(void){
 
    string selection;
+   vector<STNMOE001::StudentRecord>studentVector;
+   //initially read in entries from the database/ txt file
+   ifstream ifs("database.txt");
   
-   for(;;){
+   for(;;){ //infinite loop
    
+      //menu display
       cout<<"0: Add student\n"
           <<"1: Read database\n"
           <<"2: Save database\n"
@@ -21,19 +30,31 @@ int main(){
       system("clear");
       if (selection == "q") break; //terminating condition
       
-      else if (selection == "0"){
-         cout << "0 selected\n";
+      else if (selection == "0"){ //add student
+      
+         string name; string surname; string studentnumber; string classrecord;
+         cout << "Enter student's name:\n";
+         cin >> name;
+         cout << "Enter student's surname:\n";
+         cin >> surname;
+         cout << "Enter student's studentnumber:\n";
+         cin >> studentnumber;
+         cout << "Enter student's classrecord:\n";
+         cin >> classrecord;
+         
+         STNMOE001::add_student(name,surname,studentnumber,classrecord,studentVector);
+
       }
-      else if (selection == "1"){
+      else if (selection == "1"){ //read database
          cout << "1 selected\n";
       }
-      else if (selection == "2"){
+      else if (selection == "2"){ //save database
          cout << "2 selected\n";
       }
-      else if (selection == "3"){
+      else if (selection == "3"){ //display given student
          cout << "3 selected\n";
       }
-      else if (selection == "4\n"){
+      else if (selection == "4\n"){ //grade student
          cout << "4 selected";
       }
    }
